@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import { Shape } from "./Shape";
 
@@ -39,14 +39,6 @@ const geometries: GeometryObject[] = [
     r: 0.7,
     geometry: new THREE.TorusKnotGeometry(1.5), // Knot
   },
-];
-
-const soundEffects = [
-  new Audio("./sounds/impactMining_000.ogg"),
-  new Audio("./sounds/impactMining_001.ogg"),
-  new Audio("./sounds/impactMining_002.ogg"),
-  new Audio("./sounds/impactMining_003.ogg"),
-  new Audio("./sounds/impactMining_004.ogg"),
 ];
 
 const materials = [
@@ -88,6 +80,16 @@ const materials = [
 ];
 
 const Shapes = () => {
+  const [soundEffects, setSoundEffects] = useState<HTMLAudioElement[]>([]);
+  useEffect(() => {
+    setSoundEffects([
+      new Audio("./sounds/impactMining_000.ogg"),
+      new Audio("./sounds/impactMining_001.ogg"),
+      new Audio("./sounds/impactMining_002.ogg"),
+      new Audio("./sounds/impactMining_003.ogg"),
+      new Audio("./sounds/impactMining_004.ogg"),
+    ]);
+  }, []);
   return (
     <div className="row-span-1  h-full md:col-span-1 md:col-start-2 md:mt-0">
       <Canvas
