@@ -51,7 +51,7 @@ const Home = () => {
 
       <div className="col-start-1 md:row-start-1">
         <h1
-          className="mb-8 text-[clamp(3rem,18vmin,20rem)] font-extrabold leading-none tracking-tighter"
+          className="mb-8 text-[clamp(3rem,18vmin,10rem)] font-extrabold leading-none tracking-tighter"
           aria-label={"Marwan Ezzat"}
         >
           <span className="block text-slate-300 ">
