@@ -42,9 +42,11 @@ const geometries: GeometryObject[] = [
 ];
 
 const soundEffects = [
-  new Audio("/sounds/hit2.ogg"),
-  new Audio("/sounds/hit3.ogg"),
-  new Audio("/sounds/hit4.ogg"),
+  new Audio("./sounds/impactMining_000.ogg"),
+  new Audio("./sounds/impactMining_001.ogg"),
+  new Audio("./sounds/impactMining_002.ogg"),
+  new Audio("./sounds/impactMining_003.ogg"),
+  new Audio("./sounds/impactMining_004.ogg"),
 ];
 
 const materials = [
