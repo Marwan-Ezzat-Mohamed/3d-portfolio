@@ -2,9 +2,6 @@
 import gsap from "gsap";
 import { useEffect } from "react";
 
-import { Canvas } from "@react-three/fiber";
-import { Overlay } from "@/components/Overlay";
-import { Experience } from "@/components/Experience";
 import { Shapes } from "@/components/Shapes";
 
 const Home = () => {

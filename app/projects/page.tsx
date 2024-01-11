@@ -7,7 +7,7 @@ import Image from "next/image";
 const Projects = () => {
   return (
     <section className="max-container">
-      <h1 className="head-text">
+      {/* <h1 className="head-text">
         My{" "}
         <span className="blue-gradient_text drop-shadow font-semibold">
           Projects
@@ -59,7 +59,11 @@ const Projects = () => {
 
       <hr className="border-slate-200" />
 
-      {/* <CTA /> */}
+      <CTA /> */}
+
+      {/* {//MARK AS WIP} */}
+
+      <h1 className="head-text">Coming Soon</h1>
     </section>
   );
 };
