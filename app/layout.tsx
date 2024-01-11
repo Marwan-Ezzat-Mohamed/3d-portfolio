@@ -4,19 +4,19 @@ import { cn } from "@/lib/utils";
 
 import { Urbanist } from "next/font/google";
 import { Toaster } from "sonner";
-// import { PrismicPreview } from "@prismicio/next";
-// import { createClient, repositoryName } from "@/prismicio";
-
-// import Footer from "@/components/Footer";
-// import Header from "@/components/Header";
-
+import { Metadata } from "next";
 const urbanist = Urbanist({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
+export const metadata: Metadata = {
+  title: "Marwan Ezzat's Portfolio",
+  description:
+    "A 3D portfolio website built with React Three Fiber and Next.js",
+};
+type Props = Readonly<{
   children: React.ReactNode;
-}) {
+}>;
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className="dark">
       <body
