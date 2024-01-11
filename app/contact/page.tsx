@@ -1,15 +1,16 @@
 "use client";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 import { z } from "zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+
 import { Input } from "@/components/ui/input";
 import { Fox, FoxActionName } from "@/components/Models/Fox";
 
@@ -23,19 +24,16 @@ import {
 } from "@/components/ui/form";
 
 const schema = z.object({
-  name: z.string().nonempty("Name is required"),
-  email: z.string().email("Invalid email").nonempty("Email is required"),
-  message: z.string().nonempty("Message is required"),
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email").min(1, "Email is required"),
+  message: z.string().min(1, "Message is required"),
 });
-
 type FormValues = z.infer<typeof schema>;
-
-// import { Fox } from "../models";
 
 const Contact = () => {
   const form = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  const { register, handleSubmit, reset } = form;
+  const { handleSubmit, reset } = form;
 
   const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] =
@@ -61,7 +59,11 @@ const Contact = () => {
       );
       setLoading(false);
       toast.success("Thank you for your message :)");
-      reset();
+      reset({
+        name: "",
+        email: "",
+        message: "",
+      });
       setCurrentAnimation("idle");
     } catch (error) {
       setLoading(false);
@@ -166,7 +168,14 @@ const Contact = () => {
               className="w-full text-lg font-bold"
               type="submit"
             >
-              {loading ? "Sending..." : "Send"}
+              {loading ? "Sending" : "Send"}
+              {
+                <Loader2
+                  className={`animate-spin ${
+                    loading ? "inline-block" : "hidden"
+                  }`}
+                />
+              }
             </Button>
           </form>
         </Form>
