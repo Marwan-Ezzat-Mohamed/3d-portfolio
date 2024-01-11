@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { Urbanist } from "next/font/google";
 import { Toaster } from "sonner";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+
 const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: Props) {
 
         <div className="pointer-events-none fixed inset-0 -z-40 h-full w-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-color-burn"></div>
         <div className="max-container h-full">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
