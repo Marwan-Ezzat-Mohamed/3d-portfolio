@@ -1,37 +1,37 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <div className="flex items-center p-4 bg-secondary text-primary/70 shadow-lg w-[90%] transition-all top-2 mx-auto rounded-full mx-auto fixed inset-x-0 top-1 max-w-7xl z-50">
+    <div className="fixed inset-x-0 top-1 top-2 z-50 mx-auto mx-auto flex w-[90%] max-w-7xl items-center rounded-full bg-secondary p-4 text-primary/70 shadow-lg transition-all">
       <div className="flex flex-1 gap-8 px-8">
         <Link
-          className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
+          className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
           href="/"
         >
           Home
         </Link>
         <Link
-          className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
+          className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
           href="/about"
         >
           About
         </Link>
         <Link
-          className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
+          className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
           href="/projects"
         >
           Projects
         </Link>
         <Link
-          className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
+          className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
           href="/contact"
         >
           Contact
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { Navbar };
+export { Navbar }

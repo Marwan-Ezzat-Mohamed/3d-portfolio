@@ -4,11 +4,11 @@
 
 @layer utilities {
   .max-container {
-    @apply max-w-7xl mx-auto pb-12 !pt-[calc(72px+16px)]  px-8;
+    @apply mx-auto max-w-7xl px-8 !pt-[calc(72px+16px)]  pb-12;
   }
 
   .head-text {
-    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug;
+    @apply text-3xl font-semibold sm:text-5xl sm:leading-snug;
   }
   .background-gradient {
     background: radial-gradient(

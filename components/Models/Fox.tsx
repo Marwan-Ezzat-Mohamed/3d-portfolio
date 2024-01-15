@@ -6,45 +6,45 @@ Source: https://sketchfab.com/3d-models/fox-f372c04de44640fbb6a4f9e4e5845c78
 Title: Fox
 */
 
-import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
+import * as THREE from 'three'
+import React, { useEffect, useRef } from 'react'
+import { useGLTF, useAnimations } from '@react-three/drei'
+import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Object_7: THREE.SkinnedMesh;
-    Object_8: THREE.SkinnedMesh;
-    Object_9: THREE.SkinnedMesh;
-    Object_10: THREE.SkinnedMesh;
-    Object_11: THREE.SkinnedMesh;
-    GLTF_created_0_rootJoint: THREE.Bone;
-  };
+    Object_7: THREE.SkinnedMesh
+    Object_8: THREE.SkinnedMesh
+    Object_9: THREE.SkinnedMesh
+    Object_10: THREE.SkinnedMesh
+    Object_11: THREE.SkinnedMesh
+    GLTF_created_0_rootJoint: THREE.Bone
+  }
   materials: {
-    PaletteMaterial001: THREE.MeshStandardMaterial;
-  };
-};
+    PaletteMaterial001: THREE.MeshStandardMaterial
+  }
+}
 
-export type FoxActionName = "hit" | "idle" | "walk" | "walk.left";
-type GLTFActions = Record<FoxActionName, THREE.AnimationAction>;
+export type FoxActionName = 'hit' | 'idle' | 'walk' | 'walk.left'
+type GLTFActions = Record<FoxActionName, THREE.AnimationAction>
 
-type FoxProps = JSX.IntrinsicElements["group"] & {
-  animation?: FoxActionName;
-};
+type FoxProps = JSX.IntrinsicElements['group'] & {
+  animation?: FoxActionName
+}
 
 const Fox = ({ animation, ...props }: FoxProps) => {
-  const group = useRef<THREE.Group>(null);
-  const { nodes, materials, animations } = useGLTF("./fox.glb") as GLTFResult;
-  const ani = useAnimations(animations, group);
-  const actions = ani.actions as GLTFActions;
+  const group = useRef<THREE.Group>(null)
+  const { nodes, materials, animations } = useGLTF('./fox.glb') as GLTFResult
+  const ani = useAnimations(animations, group)
+  const actions = ani.actions as GLTFActions
 
   useEffect(() => {
-    if (!animation) return;
-    actions[animation].play();
+    if (!animation) return
+    actions[animation].play()
     return () => {
-      actions[animation]?.stop();
-    };
-  }, [actions, animation]);
+      actions[animation]?.stop()
+    }
+  }, [actions, animation])
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -82,8 +82,8 @@ const Fox = ({ animation, ...props }: FoxProps) => {
         />
       </group>
     </group>
-  );
-};
+  )
+}
 
-useGLTF.preload("./fox.glb");
-export { Fox };
+useGLTF.preload('./fox.glb')
+export { Fox }
