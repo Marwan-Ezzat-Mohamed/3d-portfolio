@@ -163,7 +163,6 @@ const Contact = () => {
             </div>
 
             <Button
-              variant={"default"}
               disabled={loading}
               className="w-full text-lg font-bold"
               type="submit"

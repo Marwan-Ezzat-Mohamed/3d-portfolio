@@ -42,7 +42,7 @@ const Fox = ({ animation, ...props }: FoxProps) => {
     if (!animation) return;
     actions[animation].play();
     return () => {
-      actions[animation].stop();
+      actions[animation]?.stop();
     };
   }, [actions, animation]);
 
