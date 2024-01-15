@@ -39,14 +39,14 @@ const Home = () => {
 
   const renderLetters = (name: string) => {
     if (!name) return;
-    return name.split("").map((letter, index) => (
+    return name.split("").map((letter) => (
       <span key={name} className={`name-animation inline-block opacity-0 `}>
         {letter}
       </span>
     ));
   };
   return (
-    <div className="grid  grid-cols-1 items-center md:grid-cols-2 h-full">
+    <div className="grid grid-cols-1 items-center md:grid-cols-2 h-full">
       <Shapes />
 
       <div className="col-start-1 md:row-start-1">

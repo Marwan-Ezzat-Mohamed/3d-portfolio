@@ -13,6 +13,12 @@ const Navbar = () => {
         </Link>
         <Link
           className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
+          href="/about"
+        >
+          About
+        </Link>
+        <Link
+          className="font-bold hover:bg-inherit hover:text-primary hover:scale-105 text-xl p-0"
           href="/projects"
         >
           Projects
