@@ -7,19 +7,19 @@ const Navbar = () => {
       <div className="flex flex-1 gap-8 px-8">
         <Link
           className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
-          href="/"
+          href="/#home"
         >
           Home
         </Link>
         <Link
           className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
-          href="/about"
+          href="/#about"
         >
           About
         </Link>
         <Link
           className="p-0 text-xl font-bold hover:scale-105 hover:bg-inherit hover:text-primary"
-          href="/projects"
+          href="/#projects"
         >
           Projects
         </Link>

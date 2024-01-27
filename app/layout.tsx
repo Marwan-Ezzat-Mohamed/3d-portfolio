@@ -7,6 +7,8 @@ import { Toaster } from 'sonner'
 import { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { TracingBeam } from '@/components/ui/tracing-beam'
+import SparklesCore from '@/components/ui/SparklesCore'
 
 const urbanist = Urbanist({ subsets: ['latin'] })
 
@@ -25,15 +27,23 @@ export default function RootLayout({ children }: Props) {
       <body
         className={cn(
           urbanist.className,
-          'relative h-screen min-h-screen bg-secondary',
+          'relative relative h-max min-h-screen overflow-x-hidden',
         )}
       >
         <Navbar />
         <Toaster richColors />
-        <div className="absolute inset-0 -z-50 h-screen bg-gradient-radial " />
 
-        <div className="pointer-events-none fixed inset-0 -z-40 h-full w-full  bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-color-burn"></div>
-        <div className="max-container h-full">{children}</div>
+        <SparklesCore
+          background="transparent"
+          minSize={0.3}
+          maxSize={0.8}
+          particleDensity={30}
+          className="absolute left-0 top-0 h-full w-screen"
+          particleColor="#FFFFFF"
+        />
+
+        <TracingBeam>{children}</TracingBeam>
+
         <Analytics />
         <SpeedInsights />
       </body>
